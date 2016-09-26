@@ -1556,12 +1556,12 @@ def main(argv):
   OPTIONS.info_dict = common.LoadInfoDict(input_zip)
 
   # If this image was originally labelled with SELinux contexts, make sure we
-  # also apply the labels in our new image. During building, the "file_contexts"
+  # also apply the labels in our new image. During building, the "file_contexts.bin"
   # is in the out/ directory tree, but for repacking from target-files.zip it's
   # in the root directory of the ramdisk.
   if "selinux_fc" in OPTIONS.info_dict:
     OPTIONS.info_dict["selinux_fc"] = os.path.join(OPTIONS.input_tmp, "BOOT", "RAMDISK",
-        "file_contexts")
+        "file_contexts.bin")
 
   if OPTIONS.verbose:
     print "--- target info ---"
