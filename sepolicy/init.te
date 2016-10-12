@@ -7,3 +7,7 @@ allow init debugfs:dir mounton;
 
 allow init wifi_data_file:dir { write add_name };
 allow init wifi_data_file:file { write create setattr };
+
+allow init serial_device:chr_file { write ioctl };
+allow init block_device:blk_file write;
+allow init kmsg_device:chr_file write;
